@@ -22,8 +22,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --collect:"XPlat Code Coverage"
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.4
-      with:
-        path: test/Calculator.Tests/TestResults
+      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
+    - name: Codecov upload
+      uses: codecov/codecov-action@v2
