@@ -1,0 +1,2 @@
+dotnet test --collect:"XPlat Code Coverage"
+reportgenerator -reports:"D:/Programming/VisualStudio2019Projects/Calculator/test/Calculator.Tests/TestResults/0bdad848-ece4-4512-9540-2f8c5839fe4c/coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
