@@ -1,6 +1,8 @@
 using System;
+using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
 using Xunit;
 
 namespace Calculator.Tests
@@ -88,6 +90,9 @@ namespace Calculator.Tests
         [Fact]
         public void ShouldBeAbleToRunProgramMain()
         {
+            // Use dot instead of comma in numeric values
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
             var output = new StringWriter();
             Console.SetOut(output);
 
@@ -109,7 +114,7 @@ n");
                                  "m - Multiply" +
                                  "d - Divide" +
                                  "Your option? " +
-                                 "Your result: 0,36" +
+                                 "Your result: 0.36" +
                                  "------------------------" +
                                  "Press 'n' and Enter to close the app, or press any other key and Enter to continue: ";
 
@@ -119,6 +124,9 @@ n");
         [Fact]
         public void ShouldBeAbleToRunProgramMainWithIncorrectFirstArg()
         {
+            // Use dot instead of comma in numeric values
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
             var output = new StringWriter();
             Console.SetOut(output);
 
@@ -142,7 +150,7 @@ n");
                                  "m - Multiply" +
                                  "d - Divide" +
                                  "Your option? " +
-                                 "Your result: 0,36" +
+                                 "Your result: 0.36" +
                                  "------------------------" +
                                  "Press 'n' and Enter to close the app, or press any other key and Enter to continue: ";
 
@@ -152,6 +160,9 @@ n");
         [Fact]
         public void ShouldBeAbleToRunProgramMainWithIncorrectSecondArg()
         {
+            // Use dot instead of comma in numeric values
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
             var output = new StringWriter();
             Console.SetOut(output);
 
@@ -175,7 +186,7 @@ n");
                                  "m - Multiply" +
                                  "d - Divide" +
                                  "Your option? " +
-                                 "Your result: 0,36" +
+                                 "Your result: 0.36" +
                                  "------------------------" +
                                  "Press 'n' and Enter to close the app, or press any other key and Enter to continue: ";
 
@@ -185,6 +196,9 @@ n");
         [Fact]
         public void ShouldBeAbleToRunProgramMainWithDivisionByZero()
         {
+            // Use dot instead of comma in numeric values
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
             var output = new StringWriter();
             Console.SetOut(output);
 

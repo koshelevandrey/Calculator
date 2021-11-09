@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 
 namespace CalculatorProgram
 {
@@ -6,6 +8,9 @@ namespace CalculatorProgram
     {
         public static void Main(string[] args)
         {
+            // Use dot instead of comma in numeric values
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
             bool endApp = false;
             // Display title as the C# console calculator app.
             Console.WriteLine("Console Calculator in C#\r");

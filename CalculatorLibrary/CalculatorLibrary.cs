@@ -2,6 +2,8 @@
 using System.IO;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using System.Globalization;
+using System.Threading;
 
 namespace CalculatorProgram
 {
@@ -22,6 +24,9 @@ namespace CalculatorProgram
 
         public double DoOperation(double num1, double num2, string op)
         {
+            // Use dot instead of comma in numeric values
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+
             double result = double.NaN; // Default value is "not-a-number" if an operation, such as division, could result in an error.
             writer.WriteStartObject();
             writer.WritePropertyName("Operand1");
