@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using Xunit;
 
 namespace Calculator.Tests
@@ -98,21 +99,21 @@ n");
 
             CalculatorProgram.Program.Main(new string[] { });
 
-            var expectedOutput = "Console Calculator in C#" + "\r\r\n" +
-                                 "------------------------" + "\n\r\n" +
+            var expectedOutput = "Console Calculator in C#"+
+                                 "------------------------"+
                                  "Type a number, and then press Enter: " +
                                  "Type another number, and then press Enter: " +
                                  "Choose an operator from the following list:" +
-                                 "\r\n\ta - Add" +
-                                 "\r\n\ts - Subtract" +
-                                 "\r\n\tm - Multiply" +
-                                 "\r\n\td - Divide\r\n" +
+                                 "a - Add" +
+                                 "s - Subtract" +
+                                 "m - Multiply" +
+                                 "d - Divide" +
                                  "Your option? " +
-                                 "Your result: 0,36\n\r\n" +
+                                 "Your result: 0,36" +
                                  "------------------------" +
-                                 "\n\r\nPress 'n' and Enter to close the app, or press any other key and Enter to continue: \n\r\n";
+                                 "Press 'n' and Enter to close the app, or press any other key and Enter to continue: ";
 
-            Assert.Equal(expectedOutput, output.ToString());
+            Assert.Equal(expectedOutput, Regex.Replace(output.ToString(), @"[\r\t\n]+", string.Empty));
         }
 
         [Fact]
@@ -130,22 +131,22 @@ n");
 
             CalculatorProgram.Program.Main(new string[] { });
 
-            var expectedOutput = "Console Calculator in C#" + "\r\r\n" +
-                                 "------------------------" + "\n\r\n" +
+            var expectedOutput = "Console Calculator in C#" +
+                                 "------------------------" +
                                  "Type a number, and then press Enter: " +
                                  "This is not valid input. Please enter an integer value: " +
                                  "Type another number, and then press Enter: " +
                                  "Choose an operator from the following list:" +
-                                 "\r\n\ta - Add" +
-                                 "\r\n\ts - Subtract" +
-                                 "\r\n\tm - Multiply" +
-                                 "\r\n\td - Divide\r\n" +
+                                 "a - Add" +
+                                 "s - Subtract" +
+                                 "m - Multiply" +
+                                 "d - Divide" +
                                  "Your option? " +
-                                 "Your result: 0,36\n\r\n" +
+                                 "Your result: 0,36" +
                                  "------------------------" +
-                                 "\n\r\nPress 'n' and Enter to close the app, or press any other key and Enter to continue: \n\r\n";
+                                 "Press 'n' and Enter to close the app, or press any other key and Enter to continue: ";
 
-            Assert.Equal(expectedOutput, output.ToString());
+            Assert.Equal(expectedOutput, Regex.Replace(output.ToString(), @"[\r\t\n]+", string.Empty));
         }
 
         [Fact]
@@ -163,22 +164,22 @@ n");
 
             CalculatorProgram.Program.Main(new string[] { });
 
-            var expectedOutput = "Console Calculator in C#" + "\r\r\n" +
-                                 "------------------------" + "\n\r\n" +
+            var expectedOutput = "Console Calculator in C#" +
+                                 "------------------------" +
                                  "Type a number, and then press Enter: " +
                                  "Type another number, and then press Enter: " +
                                  "This is not valid input. Please enter an integer value: " +
                                  "Choose an operator from the following list:" +
-                                 "\r\n\ta - Add" +
-                                 "\r\n\ts - Subtract" +
-                                 "\r\n\tm - Multiply" +
-                                 "\r\n\td - Divide\r\n" +
+                                 "a - Add" +
+                                 "s - Subtract" +
+                                 "m - Multiply" +
+                                 "d - Divide" +
                                  "Your option? " +
-                                 "Your result: 0,36\n\r\n" +
+                                 "Your result: 0,36" +
                                  "------------------------" +
-                                 "\n\r\nPress 'n' and Enter to close the app, or press any other key and Enter to continue: \n\r\n";
+                                 "Press 'n' and Enter to close the app, or press any other key and Enter to continue: ";
 
-            Assert.Equal(expectedOutput, output.ToString());
+            Assert.Equal(expectedOutput, Regex.Replace(output.ToString(), @"[\r\t\n]+", string.Empty));
         }
 
         [Fact]
@@ -195,22 +196,22 @@ n");
 
             CalculatorProgram.Program.Main(new string[] { });
 
-            var expectedOutput = "Console Calculator in C#" + "\r\r\n" +
-                                 "------------------------" + "\n\r\n" +
+            var expectedOutput = "Console Calculator in C#" +
+                                 "------------------------" +
                                  "Type a number, and then press Enter: " +
                                  "Type another number, and then press Enter: " +
                                  "Choose an operator from the following list:" +
-                                 "\r\n\ta - Add" +
-                                 "\r\n\ts - Subtract" +
-                                 "\r\n\tm - Multiply" +
-                                 "\r\n\td - Divide\r\n" +
+                                 "a - Add" +
+                                 "s - Subtract" +
+                                 "m - Multiply" +
+                                 "d - Divide" +
                                  "Your option? " +
-                                 "Oh no! An exception occurred trying to do the math.\n - Details: " +
-                                 "Token PropertyName in state Property would result in an invalid JSON object. Path 'Operations[0]'.\r\n" +
+                                 "Oh no! An exception occurred trying to do the math. - Details: " +
+                                 "Token PropertyName in state Property would result in an invalid JSON object. Path 'Operations[0]'." +
                                  "------------------------" +
-                                 "\n\r\nPress 'n' and Enter to close the app, or press any other key and Enter to continue: \n\r\n";
+                                 "Press 'n' and Enter to close the app, or press any other key and Enter to continue: ";
 
-            Assert.Equal(expectedOutput, output.ToString());
+            Assert.Equal(expectedOutput, Regex.Replace(output.ToString(), @"[\r\t\n]+", string.Empty));
         }
     }
 }
